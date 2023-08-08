@@ -1,13 +1,16 @@
 <template>
 	<!-- 基础卡片组件 -->
 	<view class="card">
-		<!-- 标题 -->
-		<view class="font-md font-weight p-2 border-bottom main-border-color">
-			标题
-			</view>
+		<!-- head -->
+		<view v-if="showHead" class="p-2 border-bottom main-border-color">
+			<slot name="title">
+				<text v-if="headTitle" class="font-md font-weight">{{headTitle}}</text>
+			</slot>
+		</view>
 		<!-- body -->
-		<view class="">
-			<image src="/static/images/demo/demo4.png" mode="widthFix"></image>
+		<view>
+			<image v-if="bodyCover" :src="bodyCover" mode="widthFix"></image>
+			<slot />
 		</view>
 	</view>
 </template>
@@ -15,10 +18,15 @@
 <script>
 	export default {
 		props: {
-			propName: {
-				type: Number,
-				default: 
-			},
+			// 头部标题
+			headTitle: String,
+			// 封面图
+			bodyCover: String,
+			// 是否显示头部
+			showHead: {
+				type: Boolean,
+				default: true
+			}
 		},
 	}
 </script>
