@@ -262,16 +262,27 @@ var render = function () {
         {
           staticClass: _vm._$g(1, "sc"),
           staticStyle: {},
-          attrs: { "scroll-x": true, _i: 1 },
+          attrs: {
+            "scroll-x": true,
+            "scroll-into-view": _vm._$g(1, "a-scroll-into-view"),
+            "scroll-with-animation": true,
+            _i: 1,
+          },
         },
-        _vm._l(30, function (i, $10, $20, $30) {
+        _vm._l(_vm._$g(2, "f"), function (item, index, $20, $30) {
           return _c(
             "uni-view",
             {
-              key: i,
+              key: item,
               staticClass: _vm._$g("2-" + $30, "sc"),
+              class: _vm._$g("2-" + $30, "c"),
               staticStyle: { height: "80rpx", "line-height": "80rpx" },
-              attrs: { _i: "2-" + $30 },
+              attrs: { id: _vm._$g("2-" + $30, "a-id"), _i: "2-" + $30 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
             },
             [
               _c(
@@ -281,6 +292,112 @@ var render = function () {
                   attrs: { _i: "3-" + $30 },
                 },
                 [_vm._v(_vm._$g("3-" + $30, "t0-0"))]
+              ),
+            ],
+            1
+          )
+        }),
+        1
+      ),
+      _c(
+        "v-uni-swiper",
+        {
+          style: _vm._$g(4, "s"),
+          attrs: { duration: 150, current: _vm._$g(4, "a-current"), _i: 4 },
+          on: {
+            change: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
+        _vm._l(_vm._$g(5, "f"), function (item, index, $21, $31) {
+          return _c(
+            "v-uni-swiper-item",
+            { key: item, attrs: { _i: "5-" + $31 } },
+            [
+              _c(
+                "v-uni-scroll-view",
+                {
+                  style: _vm._$g("6-" + $31, "s"),
+                  attrs: { "scroll-y": "true", _i: "6-" + $31 },
+                  on: {
+                    scrolltolower: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
+                },
+                [
+                  _vm._l(
+                    _vm._$g(7 + "-" + $31, "f"),
+                    function (list, listIndex, $22, $32) {
+                      return [
+                        _vm._$g("8-" + $31 + "-" + $32, "i")
+                          ? _c("swiper-image", {
+                              key: list["k0"],
+                              attrs: { _i: "8-" + $31 + "-" + $32 },
+                            })
+                          : _vm._$g("9-" + $31 + "-" + $32, "e")
+                          ? [
+                              _c("index-nav", {
+                                attrs: { _i: "10-" + $31 + "-" + $32 },
+                              }),
+                              _c("divider", {
+                                attrs: { _i: "11-" + $31 + "-" + $32 },
+                              }),
+                            ]
+                          : _vm._$g("12-" + $31 + "-" + $32, "e")
+                          ? [
+                              _c("three-adv", {
+                                attrs: { _i: "13-" + $31 + "-" + $32 },
+                              }),
+                              _c("divider", {
+                                attrs: { _i: "14-" + $31 + "-" + $32 },
+                              }),
+                            ]
+                          : _vm._$g("15-" + $31 + "-" + $32, "e")
+                          ? _c(
+                              "uni-view",
+                              {
+                                key: list["k-1"],
+                                staticClass: _vm._$g(
+                                  "15-" + $31 + "-" + $32,
+                                  "sc"
+                                ),
+                                attrs: { _i: "15-" + $31 + "-" + $32 },
+                              },
+                              [
+                                _vm._l(
+                                  _vm._$g(16 + "-" + $31 + "-" + $32, "f"),
+                                  function (item2, index2, $23, $33) {
+                                    return [
+                                      _c("common-list", {
+                                        key: item2["k0"],
+                                        attrs: {
+                                          _i:
+                                            "17-" + $31 + "-" + $32 + "-" + $33,
+                                        },
+                                      }),
+                                    ]
+                                  }
+                                ),
+                              ],
+                              2
+                            )
+                          : _vm._e(),
+                      ]
+                    }
+                  ),
+                  _c("divider", { attrs: { _i: "18-" + $31 } }),
+                  _c(
+                    "uni-view",
+                    {
+                      staticClass: _vm._$g("19-" + $31, "sc"),
+                      attrs: { _i: "19-" + $31 },
+                    },
+                    [_vm._v(_vm._$g("19-" + $31, "t0-0"))]
+                  ),
+                ],
+                2
               ),
             ],
             1
